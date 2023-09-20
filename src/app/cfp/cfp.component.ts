@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ThanksDialogComponent } from './thanks.dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { YearService } from '../year.service';
 import { tap, switchMap, take, filter } from 'rxjs/operators';
 import { AuthService } from '../realtime-data/auth.service';

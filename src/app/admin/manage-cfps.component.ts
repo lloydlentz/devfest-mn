@@ -2,7 +2,6 @@ import { Component, Pipe, PipeTransform } from '@angular/core';
 import { YearService } from '../year.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
-import { DataService } from 'app/shared/data.service';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 interface Proposal {

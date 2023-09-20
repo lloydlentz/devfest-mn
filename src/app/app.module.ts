@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, UrlSegment } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from 'environments/environment';
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { UpdateService } from './update.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     { path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
     { matcher: isMarketingContent, loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
     { path: '', loadChildren: () => import('./authenticated/authenticated.module').then(m => m.AuthenticatedModule) },
-], { relativeLinkResolution: 'legacy' }),
+], {}),
         ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
         MatSnackBarModule,
 

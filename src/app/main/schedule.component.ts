@@ -6,7 +6,7 @@ import { DataService, Session } from '../shared/data.service';
 
 import { Observable, combineLatest } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { environment } from 'environments/environment';
+import { environment } from '../../environments/environment';
 import { YearService } from '../year.service';
 import { AuthService } from '../realtime-data/auth.service';
 
