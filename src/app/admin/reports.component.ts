@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DataService } from '../shared/data.service';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 import { Observable, combineLatest } from 'rxjs';
 import { map, tap } from 'rxjs/operators';

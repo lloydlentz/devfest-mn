@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
 import { map } from 'rxjs/operators';
 
 import { DataService } from '../shared/data.service';

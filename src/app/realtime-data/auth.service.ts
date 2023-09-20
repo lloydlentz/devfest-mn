@@ -1,9 +1,11 @@
 import { Injectable, Inject, Injector } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { YearService } from '../year.service';
-import * as firebase from 'firebase/app';
-import { combineLatest, empty as observableEmpty, Observable, of as observableOf } from 'rxjs';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { combineLatest, EMPTY as observableEmpty, Observable, of as observableOf } from 'rxjs';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
 import { Feedback } from '../shared/data.service';
 import { localstorageCache } from '../shared/localstorage-cache.operator';
@@ -59,7 +61,7 @@ export class AuthService {
                     )
                     );
                 } else {
-                    return observableEmpty();
+                    return observableEmpty;
                 }
             }),
             localstorageCache(`agendaCache${yearService.year}`)
@@ -94,9 +96,9 @@ export class AuthService {
         this.isAdminOrVolunteer = combineLatest(this.isAdmin, this.isVolunteer, (x, y) => x || y);
     }
     login() {
-        this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
     logout() {
-        this.auth.auth.signOut();
+        this.auth.signOut();
     }
 }

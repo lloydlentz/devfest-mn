@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core';
 
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 import { YearService } from '../year.service';
 

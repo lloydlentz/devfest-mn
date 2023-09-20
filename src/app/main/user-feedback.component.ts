@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
 import { DataService, Session, Feedback } from '../shared/data.service';
 
 import { Subject, combineLatest, empty } from 'rxjs';

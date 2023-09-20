@@ -24,15 +24,20 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -45,7 +50,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -80,15 +86,6 @@
               "src/webfont.js"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "src/tsconfig.json"
-            ],
-            "exclude": []
-          }
         }
       }
     },
@@ -103,20 +100,10 @@
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "devfestmn:serve"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "e2e/tsconfig.json"
-            ],
-            "exclude": []
-          }
         }
       }
     }
   },
-  "defaultProject": "devfestmn",
   "schematics": {
     "@schematics/angular:class": {
       "spec": false

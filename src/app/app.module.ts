@@ -15,10 +15,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         BrowserModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([
-            { path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-            { matcher: isMarketingContent, loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
-            { path: '', loadChildren: () => import('./authenticated/authenticated.module').then(m => m.AuthenticatedModule) },
-        ]),
+    { path: '', pathMatch: 'full', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+    { matcher: isMarketingContent, loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
+    { path: '', loadChildren: () => import('./authenticated/authenticated.module').then(m => m.AuthenticatedModule) },
+], { relativeLinkResolution: 'legacy' }),
         ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
         MatSnackBarModule,
 

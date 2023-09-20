@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Component, Input, OnChanges , inject} from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as firebase from 'firebase/app';
-import 'firebase/storage';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 
 export interface Image {
     path: string;
@@ -28,11 +28,13 @@ export class UploaderComponent implements OnChanges {
     fileList: AngularFireList<Image>;
     imageList: Observable<Image[]>;
 
+    private storage = firebase.storage();
+
+
     constructor(public db: AngularFireDatabase) {}
 
     ngOnChanges() {
         console.log('new values for folder');
-        const storage = firebase.storage();
 
         this.fileList = this.db.list<Image>(`/${this.folder}/images`);
         console.log('Rendering all images in ', `/${this.folder}/images`);
@@ -42,7 +44,7 @@ export class UploaderComponent implements OnChanges {
                 itemSnapshotList.map(item => {
                     const image = item.payload.val();
                     console.log(item, 'is in our list of images.');
-                    const pathReference = storage.ref(image.path);
+                    const pathReference = this.storage.ref( image.path);
                     const result = { $key: item.key, path: image.path, downloadURL: null, filename: image.filename };
                     // This Promise must be wrapped in Promise.resolve because the thennable from
                     // firebase isn't monkeypatched by zones and therefore doesn't trigger CD
@@ -56,7 +58,7 @@ export class UploaderComponent implements OnChanges {
 
     upload() {
         // Create a root reference
-        const storageRef = firebase.storage().ref();
+        const storageRef = this.storage.ref();
         const inputBox = <HTMLInputElement>document.getElementById('file');
         if (inputBox.files.length <= 0) {
             console.log('No files found to upload.');
@@ -94,9 +96,7 @@ export class UploaderComponent implements OnChanges {
         // Do these as two separate steps so you can still try delete ref if file no longer exists
 
         // Delete from Storage
-        firebase
-            .storage()
-            .ref()
+        this.storage.ref()
             .child(storagePath)
             .delete()
             .then(() => {
