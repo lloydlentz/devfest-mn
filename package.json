@@ -31,6 +31,7 @@
     "core-js": "^2.5.4",
     "firebase": "^9.13.0",
     "firebase-http2-push-config": "^0.0.11",
+    "firebase-tools": "^12.5.4",
     "promise-polyfill": "^6.0.2",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.0.0-rc.0",
