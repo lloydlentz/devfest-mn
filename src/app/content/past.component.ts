@@ -4,23 +4,38 @@ import { Component } from '@angular/core';
     template: `
         <section>
             <div class="callout">Visit past DevFestMN content</div>
-            <p>This is the 5th year of DevFestMN.</p>
+            <p>This is the 6th year of DevFestMN.</p>
             <mat-card style="width:400px;margin:16px 0;">
-                <mat-card-header><a href="/2019/speakers" style="font-size:24px;">2019 DevFestMN Speakers</a></mat-card-header>
+                <mat-card-header
+                    ><a href="https://past.devfest.mn/2019/speakers" style="font-size:24px;"
+                        >2019 DevFestMN Speakers</a
+                    ></mat-card-header
+                >
             </mat-card>
             <mat-card style="width:400px;margin:16px 0;">
-                <mat-card-header><a href="/2018/speakers" style="font-size:24px;">2018 DevFestMN Speakers</a></mat-card-header>
+                <mat-card-header
+                    ><a href="https://past.devfest.mn/2018/speakers" style="font-size:24px;"
+                        >2018 DevFestMN Speakers</a
+                    ></mat-card-header
+                >
             </mat-card>
             <mat-card style="width:400px;margin:16px 0;">
-                <mat-card-header><a href="/2017/schedule" style="font-size:24px;">2017 DevFestMN Schedule</a></mat-card-header>
+                <mat-card-header
+                    ><a href="https://past.devfest.mn/2017/schedule" style="font-size:24px;"
+                        >2017 DevFestMN Schedule</a
+                    ></mat-card-header
+                >
             </mat-card>
             <mat-card style="width:400px;margin:16px 0;">
-                <mat-card-header><a href="/a/2016/" style="font-size:24px;">2016 DevFestMN Archive</a></mat-card-header>
+                <mat-card-header
+                    ><a href="https://past.devfest.mn/a/2016/" style="font-size:24px;"
+                        >2016 DevFestMN Archive</a
+                    ></mat-card-header
+                >
             </mat-card>
         </section>
     `,
 })
 export class PastComponent {
-    constructor() { }
-
+    constructor() {}
 }
