@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, UrlSegment } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { UpdateService } from './update.service';
@@ -19,7 +18,6 @@ import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/
     { matcher: isMarketingContent, loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
     { path: '', loadChildren: () => import('./authenticated/authenticated.module').then(m => m.AuthenticatedModule) },
 ], {}),
-        ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
         MatSnackBarModule,
 
     ],
