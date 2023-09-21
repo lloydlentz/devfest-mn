@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, UrlSegment } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { UpdateService } from './update.service';
 import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 
 
@@ -25,7 +24,7 @@ import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/
     providers: [],
 })
 export class AppModule {
-    constructor(us: UpdateService) {}
+    constructor() {}
 }
 
 export function isMarketingContent(url: UrlSegment[]) {
