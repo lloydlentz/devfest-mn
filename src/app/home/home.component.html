@@ -1,15 +1,13 @@
 <div id="home">
     <div id="hero-section">
-        <!-- <img src="a/images/devfestmn.svg" style="width:40%;max-width:400px;min-width:250px;" alt="DevFestMN 2017"> -->
-        <img src="a/2019ai/devfestmnfocus-logo-white.svg" style="width:20%;max-width:400px;min-width:250px;" alt="DevFestMN 2017">
+        <img src="a/images/devfestmn.svg" style="width:40%;max-width:400px;min-width:250px;" alt="DevFestMN 2023">
         <div>
-        <!-- <h1>Conference Title</h1> -->
         <div class="event-hero-info">
             <a class="icon-text-link">
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                     <path fill="#000000" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"></path>
                 </svg>
-                <span>September 27th, 2019</span>
+                <span>December 2nd, 2023</span>
             </a>
             <!--<a href="https://www.google.com/maps/place/Schulze+Hall/@44.974195,-93.279928,17z/data=!3m1!4b1!4m2!3m1!1s0x52b332944d7d30f9:0x169d5a902717f38e?hl=en" -->
             <a href="" target="_blank" class="icon-text-link">
@@ -23,9 +21,8 @@
 
         <!-- Call to Action Buttons -->
         <div class="cta-block">
-            <a *ngIf="environment.showRegister" routerLink="/tickets" class="cta all-caps">Register</a>
-            <a href="https://bit.ly/sponsorsheet-devfestmn2017" target="_blank" class="cta all-caps">Sponsor</a>
-            <!-- <a href="https://papercall.io/devfestmn2019" target="_blank" class="cta all-caps">Speak</a> -->
+            <!-- <a *ngIf="environment.showRegister" routerLink="/tickets" class="cta all-caps">Register</a> -->
+            <!-- <a href="https://bit.ly/sponsorsheet-devfestmn2017" target="_blank" class="cta all-caps">Sponsor</a> -->
         </div>
 
         <h2>One Day, One Track</h2>
@@ -62,10 +59,10 @@
             <h2>What to Expect</h2>
             <p>DevFestMN, established as one of the best developer conferences in the Midwest, will have a single day event focusing on Machine Learning and Artificial Intelligence.</p>
             <div class="split-column">
-                <img src=".././a/2019ai/expect-image.jpg">
+                <img src="/a/images/background.jpg">
                 <div>
                     <p>DevFestMN, since 2013, has grown to a well known event, drawing people from around the world to previous events. In the past we have had nearly 600 attendees with 50+ speakers.</p>
-                    <p>This year's 2019 DevFestMN Focus event will be a single track event focusing specifically on Machine Learning and Artificial Intelligence.</p>
+                    <p>This year's 2023 DevFestMN Focus event will be a single track event covering Google platforms including Web, Android, AI, and Cloud.</p>
                 </div>
             </div>
         </div>
@@ -75,7 +72,7 @@
         <div>
             <h2>About Us</h2>
 
-            <div class="callout">Special focus event.  <br>
+            <div class="callout">
                 1 Day, 1 Track.  <br>
                 World renowned speakers.
                 <!-- <br/>600 Attendees -->
@@ -113,16 +110,16 @@
         </div>
     </section>
 
-    <section>
+    <!-- <section>
         <div>
             <h2>Our Focus Event</h2>
             <p>Our call for speakers is now open. Please submit your talk via the link below. We can't wait to see hear from you!</p>
             <p>
-                <!-- <a routerLink="/cfp" class="cta all-caps" style="display:inline;">Speak at DevFestMN 2019</a> -->
+                <a routerLink="/cfp" class="cta all-caps" style="display:inline;">Speak at DevFestMN 2019</a>
                 <a href="https://papercall.io/devfestmn2019" class="cta all-caps" style="display:inline;">Speak at DevFestMN 2019</a>
             </p>
         </div>
-    </section>
+    </section> -->
 
     <section id="home-section-sponsors" class="section-background">
         <div>
@@ -163,7 +160,7 @@
         </div>
     </section>
 
-    <section id="join">
+    <!-- <section id="join">
         <div>
             <h2>Join Us</h2>
             <h3>Let us know how you want to get involved!</h3>
@@ -173,9 +170,9 @@
                 <a href="hhttps://papercall.io/devfestmn2019" target="_blank" class="cta all-caps">Speak</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <section id="newsletter">
+    <!-- <section id="newsletter">
         <div>
             <h2>Stay Updated</h2>
             <p>Join our newsletter so you can get our latest updates.</p>
@@ -186,7 +183,7 @@
                 </div>
             </form>
         </div>
-    </section>
+    </section> -->
 
     <section id="faq">
         <div>
@@ -200,7 +197,7 @@
                 </ul>
 
                 <div *ngIf="faqSelection == 1">
-                    <p>Speaker submissions for DevFestMN Focus: ML + AI are open through August 31, 2019.</p>
+                    <p>We'll be opening the CFP soon!</p>
                 </div>
 
                 <div *ngIf="faqSelection == 2">

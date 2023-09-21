@@ -2,7 +2,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class OurMeta {
     constructor(public title: Title, public meta: Meta) {}
 

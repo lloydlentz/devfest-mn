@@ -171,6 +171,9 @@ section.section-background {
     background-color: #19a9e5;
     color: white;
 }
+section.section-background h2 {
+    color:white;
+}
 
 #home {
     display: flex;
@@ -210,12 +213,7 @@ section.section-background {
     border-radius: 8px;
 }
 
-@media screen and (max-width: 480px) {
-    #home #map img {
-        width: 100%;
-        height: auto;
-    }
-}
+
 
 .split-column {
     display: flex;
@@ -223,22 +221,12 @@ section.section-background {
     align-items: center;
 }
 
-@media screen and (max-width: 480px) {
-    .split-column {
-        flex-direction: column;
-    }
-}
+
 
 .split-column > * {
     width: 50%;
 }
 
-@media screen and (max-width: 480px) {
-    .split-column > * {
-        width: 100%;
-        height: auto;
-    }
-}
 
 #what-to-expect img {
     width: 340px;
@@ -246,13 +234,7 @@ section.section-background {
     margin-right: 16px;
 }
 
-@media screen and (max-width: 480px) {
-    #what-to-expect img{
-        width: 100%;
-        height: auto;
-        margin: 16px 0;
-    }
-}
+   
 
 .flex {
     display: flex;
@@ -707,17 +689,51 @@ button.button.warn {
     display: none;
 }
 
-@media (max-width: 1024px) {
-    .small {
-        display: block;
-    }
-    .big {
-        display: none;
-    }
+
+/* Admin Pages */
+/* Admin CFP */
+
+.cfp-block {
+    margin: 16px 0;
 }
 
-/* Responsive - Small Screens */
+.cfp-block table {
+    width: 100%;
+}
 
+.cfp-block table td {
+    height: 32px;
+    vertical-align: top;
+}
+
+.cfp-block table tr td:first-child {
+    white-space: nowrap;
+}
+
+.cfp-block table tr td:not(:first-child) {
+    padding-left: 16px;
+}
+
+/* Small Screens */
+@media screen and (max-width: 480px) {
+    #home #map img {
+        width: 100%;
+        height: auto;
+    }
+    .split-column {
+        flex-direction: column;
+    }
+    .split-column > * {
+        width: 100%;
+        height: auto;
+    }
+    #what-to-expect img{
+        width: 100%;
+        height: auto;
+        margin: 16px 0;
+    }
+}
+/* Responsive - Medium  */
 @media (max-width: 600px) {
     body {
         padding-top: 0;
@@ -732,13 +748,13 @@ button.button.warn {
     }
 
     #header-bar {
-        flex-direction: row;
+        flex-direction: column;
         position: relative;
     }
 
     #header-bar #header-menu {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-evenly;
     }
 
@@ -748,7 +764,7 @@ button.button.warn {
         padding: 8px;
     }
 
-    #header-bar #header-menu .header-menu-item {
+    #header-bar #header-menu a {
         padding: 16px 8px;
     }
 
@@ -776,69 +792,13 @@ button.button.warn {
     }
 }
 
-/* Admin Pages */
-/* Admin CFP */
-
-.cfp-block {
-    margin: 16px 0;
+/* Responsive - Medium Large Screens */
+@media (max-width: 1024px) {
+    .small {
+        display: block;
+    }
+    .big {
+        display: none;
+    }
 }
 
-.cfp-block table {
-    width: 100%;
-}
-
-.cfp-block table td {
-    height: 32px;
-    vertical-align: top;
-}
-
-.cfp-block table tr td:first-child {
-    white-space: nowrap;
-}
-
-.cfp-block table tr td:not(:first-child) {
-    padding-left: 16px;
-}
-
-
-/* Custom Focus 2019 ML+AI Styles */
-
-.focus-mlai-2019 section h2,
-.focus-mlai-2019 #hero-section .cta-block .cta {
-    color: #0fa3b1;
-}
-
-.focus-mlai-2019 .event-hero-info {
-    background-color: rgba(255, 255, 255, .5);
-    padding: 1rem;
-    border-radius: 3px;
-}
-
-.focus-mlai-2019 footer,
-.focus-mlai-2019 .button,
-.focus-mlai-2019 section.section-background,
-.focus-mlai-2019 #hero-section,
-.input-with-button button,
-.focus-mlai-2019 .cta {
-    background-color: #0fa3b1;
-}
-
-.focus-mlai-2019 #hero-section .cta-block .cta {
-    background-color: white;
-}
-
-.focus-mlai-2019 section.section-background h2 {
-    color: white;
-}
-
-.focus-mlai-2019 .input-with-button button {
-    border-color: #0fa3b1
-}
-
-.focus-mlai-2019 .sponsor-bar {
-    background-color: rgba(255, 255, 255, .7);
-    border-radius: 4px;
-    padding: 1rem;
-    width: 30%;
-    margin: auto;
-}

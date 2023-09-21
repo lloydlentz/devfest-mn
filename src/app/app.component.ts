@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
-import { trigger, transition, state, group, query, style, animate, animateChild } from '@angular/animations';
+import { trigger, transition, group, query, style, animate } from '@angular/animations';
 import { environment } from '../environments/environment';
 
 import { filter } from 'rxjs/operators';
@@ -20,10 +20,19 @@ declare var ga: any;
                 // animate the leave page away
                 group([
                     query(':leave', [
-                        animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(-100%)' })),
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(-100%)' })
+                        ),
                     ]),
                     // and now reveal the enter
-                    query(':enter', animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(0)' }))),
+                    query(
+                        ':enter',
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(0)' })
+                        )
+                    ),
                 ]),
             ]),
             transition('2 => 1', [
@@ -33,10 +42,19 @@ declare var ga: any;
                 // animate the leave page away
                 group([
                     query(':leave', [
-                        animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(100%)' })),
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(100%)' })
+                        ),
                     ]),
                     // and now reveal the enter
-                    query(':enter', animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(0)' }))),
+                    query(
+                        ':enter',
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(0)' })
+                        )
+                    ),
                 ]),
             ]),
         ]),
@@ -46,22 +64,25 @@ export class AppComponent {
     environment = environment;
 
     constructor(router: Router, meta: OurMeta) {
-        router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((n: NavigationEnd) => {
-            let pageTitle = this.getDeepestTitle(router.routerState.snapshot.root);
-            if (pageTitle && pageTitle !== true) {
-                meta.setTitle(pageTitle);
-            } else if (pageTitle !== false) {
-                meta.clearTitle();
-            }
+        router.events
+            .pipe(filter((e) => e instanceof NavigationEnd))
+            .subscribe((n: NavigationEnd) => {
+                let pageTitle = this.getDeepestTitle(router.routerState.snapshot.root);
+                if (pageTitle && pageTitle !== true) {
+                    meta.setTitle(pageTitle);
+                } else if (pageTitle !== false) {
+                    meta.clearTitle();
+                }
 
-            meta.clearCanonical();
+                meta.clearCanonical();
 
-            window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
 
-            ga('send', 'pageview', n.urlAfterRedirects);
-        });
-        router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe((n: NavigationStart) => {
-        });
+                ga('send', 'pageview', n.urlAfterRedirects);
+            });
+        router.events
+            .pipe(filter((e) => e instanceof NavigationStart))
+            .subscribe((n: NavigationStart) => {});
     }
 
     prepRouteState(outlet: any) {
