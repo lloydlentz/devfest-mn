@@ -112,7 +112,6 @@ export class AppComponent {
     }
     lazyLoadEBWidget() {
         return import('../eb-widget').then(() => {
-            this.widgetReady = true;
             console.log('eb-widget loaded');
             console.log(window['EBWidgets']);
             var exampleCallback = function () {
@@ -125,6 +124,17 @@ export class AppComponent {
                 modalTriggerElementId: 'global-ticket-button',
                 onOrderComplete: exampleCallback,
             });
+            this.widgetReady = true;
         });
+    }
+    /*
+     * Let the user click before the widget is loaded, then click it for them
+     */
+    lazyClickEBWidget() {
+        if (!this.widgetReady) {
+            this.lazyLoadEBWidget().then(() => {
+                document.getElementById('global-ticket-button').click();
+            });
+        }
     }
 }
