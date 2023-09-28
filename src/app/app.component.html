@@ -13,6 +13,7 @@
             <a *ngIf="environment.showSchedule" [routerLink]="['/schedule']">Schedule</a>
             <a
                 *ngIf="environment.showRegister"
+                href="#"
                 (hover)="loadEBWidget()"
                 (click)="clickEBWidget()"
                 class="button"
