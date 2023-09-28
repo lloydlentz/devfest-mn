@@ -63,6 +63,8 @@ declare var ga: any;
 export class AppComponent {
     environment = environment;
 
+    widgetReady = false;
+
     constructor(router: Router, meta: OurMeta) {
         router.events
             .pipe(filter((e) => e instanceof NavigationEnd))
@@ -100,5 +102,46 @@ export class AppComponent {
             result = false;
         }
         return result;
+    }
+
+    loadEBWidget() {
+        if (this.widgetReady) {
+            return;
+        }
+        this.lazyLoadEBWidget();
+    }
+    lazyLoadEBWidget() {
+        return import('../eb-widget').then(() => {
+            this.widgetReady = true;
+            console.log('eb-widget loaded');
+            console.log(window['EBWidgets']);
+        });
+    }
+
+    clickEBWidget() {
+        if (this.widgetReady) {
+            var exampleCallback = function () {
+                console.log('Order complete!');
+            };
+
+            this.activateTicketModal();
+        } else {
+            this.lazyLoadEBWidget().then(() => {
+                this.activateTicketModal();
+            });
+        }
+    }
+    activateTicketModal() {
+        var exampleCallback = function () {
+            console.log('Order complete!');
+        };
+
+        window['EBWidgets'].createWidget({
+            widgetType: 'checkout',
+            eventId: '723185506317',
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-723185506317',
+            onOrderComplete: exampleCallback,
+        });
     }
 }
