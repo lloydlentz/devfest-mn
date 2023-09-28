@@ -115,33 +115,16 @@ export class AppComponent {
             this.widgetReady = true;
             console.log('eb-widget loaded');
             console.log(window['EBWidgets']);
-        });
-    }
-
-    clickEBWidget() {
-        if (this.widgetReady) {
             var exampleCallback = function () {
                 console.log('Order complete!');
             };
-
-            this.activateTicketModal();
-        } else {
-            this.lazyLoadEBWidget().then(() => {
-                this.activateTicketModal();
+            window['EBWidgets'].createWidget({
+                widgetType: 'checkout',
+                eventId: '723185506317',
+                modal: true,
+                modalTriggerElementId: 'global-ticket-button',
+                onOrderComplete: exampleCallback,
             });
-        }
-    }
-    activateTicketModal() {
-        var exampleCallback = function () {
-            console.log('Order complete!');
-        };
-
-        window['EBWidgets'].createWidget({
-            widgetType: 'checkout',
-            eventId: '723185506317',
-            modal: true,
-            modalTriggerElementId: 'eventbrite-widget-modal-trigger-723185506317',
-            onOrderComplete: exampleCallback,
         });
     }
 }

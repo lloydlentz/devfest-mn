@@ -1,93 +1,94 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "devfestmn": {
-      "root": "",
-      "sourceRoot": "src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "tsconfig.json",
-            "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/a",
-              "src/favicon.ico",
-              "src/webfont.js"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [],
-            "aot": false,
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "devfestmn": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "tsConfig": "tsconfig.json",
+                        "polyfills": "src/polyfills.ts",
+                        "assets": ["src/a", "src/favicon.ico", "src/webfont.js"],
+                        "styles": ["src/styles.css"],
+                        "scripts": [],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "buildOptimizer": false,
+                        "sourceMap": true,
+                        "optimization": false,
+                        "namedChunks": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "namedChunks": true,
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "devfestmn:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "devfestmn:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "devfestmn:build"
+                    }
                 }
-              ]
             }
-          },
-          "defaultConfiguration": ""
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "devfestmn:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "devfestmn:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "devfestmn:build"
-          }
         }
-      }
-    }
-  },
-  "schematics": {
-    "@schematics/angular:class": {
-      "spec": false
     },
-    "@schematics/angular:component": {
-      "spec": true,
-      "inlineStyle": false,
-      "inlineTemplate": false,
-      "prefix": "app",
-      "styleext": "css"
+    "schematics": {
+        "@schematics/angular:class": {
+            "spec": false
+        },
+        "@schematics/angular:component": {
+            "spec": true,
+            "inlineStyle": false,
+            "inlineTemplate": false,
+            "prefix": "app",
+            "styleext": "css"
+        },
+        "@schematics/angular:directive": {
+            "prefix": "app"
+        }
     },
-    "@schematics/angular:directive": {
-      "prefix": "app"
+    "cli": {
+        "analytics": "ef0ce6e0-8775-42b4-8136-01e1b1f35616"
     }
-  },
-  "cli": {
-    "analytics": "ef0ce6e0-8775-42b4-8136-01e1b1f35616"
-  }
 }
