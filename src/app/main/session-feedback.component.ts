@@ -8,10 +8,10 @@ import { YearService } from '../year.service';
 
 @Component({
     template: `
-    <section>
-        <div class="callout">{{(session  |async)?.title}}</div>
-        <user-feedback [session]="session | async"></user-feedback>
-    </section>
+        <section>
+            <div class="callout">{{ $any(session | async)?.title }}</div>
+            <user-feedback [session]="session | async"></user-feedback>
+        </section>
     `,
 })
 export class SessionFeedbackComponent {
@@ -23,11 +23,15 @@ export class SessionFeedbackComponent {
         public meta: OurMeta,
         yearService: YearService
     ) {
-        this.session = route.params.pipe(switchMap(params => {
-            return ds.getSchedule(yearService.year).pipe(map(list => list.find(item => item.$key === params['id'])));
-        }));
+        this.session = route.params.pipe(
+            switchMap((params) => {
+                return ds
+                    .getSchedule(yearService.year)
+                    .pipe(map((list) => list.find((item) => item.$key === params['id'])));
+            })
+        );
 
-        this.session.subscribe(sessionData => {
+        this.session.subscribe((sessionData) => {
             meta.setTitle('Feedback on ' + sessionData.title);
         });
     }

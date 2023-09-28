@@ -7,7 +7,7 @@ import { YearService } from '../year.service';
  * Take a speaker ID and returns a speaker
  *
  * example template expression:
- * {{ (community | getSpeaker | async)?.name }}
+ * {{ (community | getSpeaker | async)?.['name'] }}
  */
 @Pipe({ name: 'getSpeaker' })
 export class GetSpeakerPipe implements PipeTransform {
@@ -16,13 +16,15 @@ export class GetSpeakerPipe implements PipeTransform {
     transform(value: string): any {
         if (value) {
             let speakers = this.ds.getSpeakers(this.yearService.year);
-            return speakers.pipe(map(list => {
-                if (list) {
-                    return list.find(item => item.$key === value);
-                } else {
-                    return null;
-                }
-            }));
+            return speakers.pipe(
+                map((list) => {
+                    if (list) {
+                        return list.find((item) => item.$key === value);
+                    } else {
+                        return null;
+                    }
+                })
+            );
         }
     }
 }

@@ -1,53 +1,125 @@
 <style>
     mat-form-field {
-        display:block;
-        margin:16px 0;
-        min-width:400px;
+        display: block;
+        margin: 16px 0;
+        min-width: 400px;
     }
 </style>
 
 <ng-container *ngIf="sessionData | async as session; else loading">
-        <h1>{{ (session.$key ? 'Edit' : 'New') }} Session</h1>
-        <form ngNoForm (submit)="save(session)" autocomplete="off">
-                <mat-form-field><input matInput [(ngModel)]="session.title" placeholder="Title" style="width: 100%"></mat-form-field>
-                <br>
-                <textarea [(ngModel)]="session.description" placeholder="Description" style="width:100%; height: 4em;"></textarea>
-                <br>
-                <mat-form-field><input matInput [(ngModel)]="session.room" placeholder="Room" [matAutocomplete]="roomAuto" autocomplete="off"></mat-form-field>
-                <mat-autocomplete #roomAuto="matAutocomplete">
-                    <mat-option *ngFor="let room of ['Large Auditorium','Small Auditorium','235','238','244','321','334','446','458']" [value]="room">
-                        {{room}}
-                    </mat-option>
-                </mat-autocomplete>
-                <mat-form-field><input matInput [(ngModel)]="session.track" placeholder="Track" [matAutocomplete]="trackAuto" autocomplete="off"></mat-form-field>
-                <mat-autocomplete #trackAuto="matAutocomplete">
-                    <mat-option *ngFor="let track of ['all', 'Web','Android','Design','Cloud','IoT','General','Keynote']" [value]="track">{{track}}</mat-option>
+    <h1>{{ session.$key ? 'Edit' : 'New' }} Session</h1>
+    <form ngNoForm (submit)="save(session)" autocomplete="off">
+        <mat-form-field
+            ><input matInput [(ngModel)]="session.title" placeholder="Title" style="width: 100%"
+        /></mat-form-field>
+        <br />
+        <textarea
+            [(ngModel)]="session.description"
+            placeholder="Description"
+            style="width: 100%; height: 4em"
+        ></textarea>
+        <br />
+        <mat-form-field
+            ><input
+                matInput
+                [(ngModel)]="session.room"
+                placeholder="Room"
+                [matAutocomplete]="roomAuto"
+                autocomplete="off"
+        /></mat-form-field>
+        <mat-autocomplete #roomAuto="matAutocomplete">
+            <mat-option
+                *ngFor="
+                    let room of [
+                        'Large Auditorium',
+                        'Small Auditorium',
+                        '235',
+                        '238',
+                        '244',
+                        '321',
+                        '334',
+                        '446',
+                        '458'
+                    ]
+                "
+                [value]="room"
+            >
+                {{ room }}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-form-field
+            ><input
+                matInput
+                [(ngModel)]="session.track"
+                placeholder="Track"
+                [matAutocomplete]="trackAuto"
+                autocomplete="off"
+        /></mat-form-field>
+        <mat-autocomplete #trackAuto="matAutocomplete">
+            <mat-option
+                *ngFor="
+                    let track of [
+                        'all',
+                        'Web',
+                        'Android',
+                        'Design',
+                        'Cloud',
+                        'IoT',
+                        'General',
+                        'Keynote'
+                    ]
+                "
+                [value]="track"
+                >{{ track }}</mat-option
+            >
+        </mat-autocomplete>
+        <mat-form-field
+            ><input matInput [(ngModel)]="session.startTime" placeholder="Start Time"
+        /></mat-form-field>
+        <mat-form-field
+            ><input matInput [(ngModel)]="session.blocks" placeholder="# of Blocks"
+        /></mat-form-field>
+        <mat-form-field
+            ><input matInput [(ngModel)]="session.notes" placeholder="Last Minute Notes"
+        /></mat-form-field>
+        <div>
+            <em>speakers</em>
+            <ul class="speakerlist">
+                <li *ngFor="let speaker of session.speakers | keyvalue">
+                    <img
+                        src="{{
+                            (
+                                speaker.value
+                                | fireJoin : '/devfest' + yearService.year + '/speakers/'
+                                | async
+                            )?.['imageUrl']
+                        }}"
+                        style="max-height: 50px"
+                    />
+                    {{
+                        (speaker.value
+                            | fireJoin : '/devfest' + yearService.year + '/speakers/'
+                            | async)?.['name']
+                    }}
+                    <button type="button" (click)="deleteSpeakerFromSession(session, speaker.key)">
+                        -X-
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <button mat-raised-button type="submit" *ngIf="!session.$key">Create Session</button>
+        <button mat-raised-button type="submit" *ngIf="session.$key">Save Session</button>
+        <br />
+        <em>Add speakers from the list below</em>
+        <speaker-selector
+            [session]="session"
+            style="overflow: scroll; max-height: 300px; display: block"
+        ></speaker-selector>
 
-                </mat-autocomplete>
-                <mat-form-field><input matInput [(ngModel)]="session.startTime" placeholder="Start Time"></mat-form-field>
-                <mat-form-field><input matInput [(ngModel)]="session.blocks" placeholder="# of Blocks"></mat-form-field>
-                <mat-form-field><input matInput [(ngModel)]="session.notes" placeholder="Last Minute Notes"></mat-form-field>
-                <div>
-                    <em>speakers</em>
-                    <ul class="speakerlist">
-                        <li *ngFor="let speaker of (session.speakers | keyvalue)">
-                            <img src="{{(speaker.value | fireJoin: '/devfest' + yearService.year + '/speakers/' | async)?.imageUrl}}" style="max-height:50px;"/>
-                            {{(speaker.value | fireJoin:'/devfest' + yearService.year + '/speakers/' | async)?.name}}
-                            <button type="button" (click)="deleteSpeakerFromSession(session, speaker.key)"> -X-</button>
-                        </li>
-                    </ul>
-                </div>
-                <button mat-raised-button type="submit" *ngIf="!session.$key">Create Session</button>
-                <button mat-raised-button type="submit" *ngIf="session.$key">Save Session</button>
-                <br>
-                <em>Add speakers from the list below</em>
-                <speaker-selector [session]="session" style="overflow: scroll; max-height: 300px; display:block"></speaker-selector>
-
-
-            <button type="submit" mat-raised-button>{{session.$key ? 'Save' : 'Create' }} Session</button> <button (click)="delete(session)" mat-button color="secondary">Delete</button>
-
-        </form>
-    </ng-container>
-<ng-template #loading>
-    Loading session data...
-</ng-template>
+        <button type="submit" mat-raised-button>
+            {{ session.$key ? 'Save' : 'Create' }} Session
+        </button>
+        <button (click)="delete(session)" mat-button color="secondary">Delete</button>
+    </form>
+</ng-container>
+<ng-template #loading> Loading session data... </ng-template>
