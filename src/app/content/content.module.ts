@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SpeakerCfpComponent } from './speaker-cfp.component';
 import { SponsorsComponent } from './sponsors.component';
 import { CodeOfConductComponent } from './code-of-conduct/code-of-conduct.component';
+import { ADirective } from '../a.directive';
 
 @NgModule({
     declarations: [SponsorsComponent, SpeakerCfpComponent, CodeOfConductComponent],
@@ -24,6 +25,7 @@ import { CodeOfConductComponent } from './code-of-conduct/code-of-conduct.compon
                 data: { title: 'Code of Conduct' },
             },
         ]),
+        ADirective,
     ],
 })
 export class ContentModule {}
