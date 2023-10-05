@@ -20,7 +20,7 @@
                 class="button"
                 >Tickets</a
             >
-            <a *ngIf="environment.showCFP" [routerLink]="['speaker-cfp']">Be a Speaker</a>
+            <a [routerLink]="['speaker-cfp']">Be a Speaker</a>
             <a *ngIf="environment.showSpeakers" [routerLink]="['/speakers']">Speakers</a>
             <a routerLink="/sponsors">Sponsor</a>
         </div>

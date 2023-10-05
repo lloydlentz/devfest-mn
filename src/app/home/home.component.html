@@ -132,7 +132,13 @@
     <section>
         <div>
             <h2>Speakers</h2>
-            <p>We can't wait to share the speaker line-up with you! Hang tight.</p>
+            <p>
+                We can't wait to share the speaker line-up with you! Hang tight.
+                <a
+                    href="https://docs.google.com/forms/u/0/d/1qlKF3ovQYs5SHgsWlIIf_YubYolAcBDVkxjDOJOfdBQ/edit"
+                    >Apply to Speak</a
+                >
+            </p>
         </div>
     </section>
 
@@ -186,17 +192,21 @@
         </div>
     </section>
 
-    <!-- <section id="join">
+    <section id="join">
         <div>
             <h2>Join Us</h2>
             <h3>Let us know how you want to get involved!</h3>
             <div class="cta-block">
-                <a *ngIf="environment.showRegister" routerLink="/tickets" class="cta all-caps">Register</a>
-                <a href="https://bit.ly/sponsorsheet-devfestmn2017" target="_blank" class="cta all-caps">Sponsor</a>
-                <a href="hhttps://papercall.io/devfestmn2019" target="_blank" class="cta all-caps">Speak</a>
+                <a routerLink="/sponsors" class="cta all-caps">Sponsor</a>
+                <a
+                    href="https://docs.google.com/forms/u/0/d/1qlKF3ovQYs5SHgsWlIIf_YubYolAcBDVkxjDOJOfdBQ/edit"
+                    target="_blank"
+                    class="cta all-caps"
+                    >Speak</a
+                >
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- <section id="newsletter">
         <div>
@@ -243,7 +253,13 @@
                 </ul>
 
                 <div *ngIf="faqSelection == 1">
-                    <p>We'll be opening the CFP soon!</p>
+                    <p>
+                        The CFP is now open!
+                        <a
+                            href="https://docs.google.com/forms/u/0/d/1qlKF3ovQYs5SHgsWlIIf_YubYolAcBDVkxjDOJOfdBQ/edit"
+                            >Submit a talk</a
+                        >.
+                    </p>
                 </div>
 
                 <div *ngIf="faqSelection == 2">
