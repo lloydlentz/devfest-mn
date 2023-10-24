@@ -1,17 +1,32 @@
 import { Component, Input } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { DataService, Session } from '../shared/data.service';
 import { AuthService } from '../realtime-data/auth.service';
+import { GetSpeakerPipe } from '../shared/get-speaker.pipe';
+import { UserFeedbackComponent } from './user-feedback.component';
+import { SpeakerContainerComponent } from './speaker-container.component';
+import { NgIf, NgFor, AsyncPipe, KeyValuePipe } from '@angular/common';
 
 
 @Component({
     selector: 'session-details',
     templateUrl: 'session-details.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        RouterLink,
+        NgFor,
+        SpeakerContainerComponent,
+        UserFeedbackComponent,
+        AsyncPipe,
+        KeyValuePipe,
+        GetSpeakerPipe,
+    ],
 })
 export class SessionDetailsComponent {
     @Input()

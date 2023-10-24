@@ -5,9 +5,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { DataService, Speaker } from '../shared/data.service';
 import { YearService } from '../year.service';
+import { UploaderComponent } from './sffb/uploader.component';
+import { MatLegacyButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyCheckboxModule } from '@angular/material/legacy-checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatLegacyInputModule } from '@angular/material/legacy-input';
+import { MatLegacyFormFieldModule } from '@angular/material/legacy-form-field';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
     templateUrl: './speaker-edit.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        MatLegacyFormFieldModule,
+        MatLegacyInputModule,
+        FormsModule,
+        MatLegacyCheckboxModule,
+        MatLegacyButtonModule,
+        UploaderComponent,
+        AsyncPipe,
+    ],
 })
 export class SpeakerEditComponent {
     speakerData: Observable<Speaker>;

@@ -4,7 +4,6 @@ import { RouterModule, UrlSegment } from '@angular/router';
 import { YearSwitcherComponent } from './year-switcher.component';
 
 @NgModule({
-    declarations: [YearSwitcherComponent],
     imports: [
         CommonModule,
         RouterModule.forChild([
@@ -14,6 +13,7 @@ import { YearSwitcherComponent } from './year-switcher.component';
             { path: 'cfp', loadChildren: () => import('../cfp/cfp.module').then(m => m.CFPModule), data: { title: 'Call For Papers' } },
             { path: '', loadChildren: () => import('../main/main.module').then(m => m.MainModule) },
         ]),
+        YearSwitcherComponent,
     ],
 })
 export class AuthenticatedModule {}

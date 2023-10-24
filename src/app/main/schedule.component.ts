@@ -9,6 +9,9 @@ import { map, shareReplay } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { YearService } from '../year.service';
 import { AuthService } from '../realtime-data/auth.service';
+import { MatLegacyButtonModule } from '@angular/material/legacy-button';
+import { ScheduleGridComponent } from './schedule-grid.component';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 export interface Schedule {
     startTimes: any[];
@@ -18,6 +21,13 @@ export interface Schedule {
 
 @Component({
     templateUrl: './schedule.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        ScheduleGridComponent,
+        MatLegacyButtonModule,
+        AsyncPipe,
+    ],
 })
 export class ScheduleComponent {
     // Two versions of the same data, one filtered, one not

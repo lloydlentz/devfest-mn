@@ -23,20 +23,6 @@ import { RealtimeDataModule } from '../realtime-data/realtime-data.module';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
-    declarations: [
-        SpeakersComponent,
-        ScheduleComponent,
-        SessionViewComponent,
-        SessionFeedbackComponent,
-        SpeakersViewComponent,
-        SpeakerContainerComponent,
-        SpeakerFullComponent,
-        UserFeedbackComponent,
-        StarBarComponent,
-        ScheduleGridComponent,
-        SessionDetailsComponent,
-        SessionsComponent
-    ],
     imports: [
         CommonModule,
         RealtimeDataModule,
@@ -55,7 +41,18 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
         MatButtonModule,
         MatCardModule,
         SharedModule,
-
+        SpeakersComponent,
+        ScheduleComponent,
+        SessionViewComponent,
+        SessionFeedbackComponent,
+        SpeakersViewComponent,
+        SpeakerContainerComponent,
+        SpeakerFullComponent,
+        UserFeedbackComponent,
+        StarBarComponent,
+        ScheduleGridComponent,
+        SessionDetailsComponent,
+        SessionsComponent,
     ],
 })
 export class MainModule { }

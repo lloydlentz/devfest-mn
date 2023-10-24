@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MatLegacyTabChangeEvent as MatTabChangeEvent } from '@angular/material/legacy-tabs';
+import { MatLegacyTabChangeEvent as MatTabChangeEvent, MatLegacyTabsModule } from '@angular/material/legacy-tabs';
 
 @Component({
-  selector: 'admin-nav',
-  template: `
+    selector: 'admin-nav',
+    template: `
     <mat-tab-group  (focusChange)="select($event)">
       <mat-tab label="Feedback">
       </mat-tab>
@@ -14,6 +14,8 @@ import { MatLegacyTabChangeEvent as MatTabChangeEvent } from '@angular/material/
 
     </mat-tab-group>
   `,
+    standalone: true,
+    imports: [MatLegacyTabsModule],
 })
 export class AdminNavComponent {
   constructor(public router: Router) {

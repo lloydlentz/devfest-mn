@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatLegacyButtonModule } from '@angular/material/legacy-button';
 
 @Component({
     template: `
@@ -10,6 +11,8 @@ import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dia
     <button mat-raised-button color="primary" style="margin:16px auto;" (click)="closeDialog()">Close</button>
     </div>
     `,
+    standalone: true,
+    imports: [MatLegacyButtonModule],
 })
 export class ThanksDialogComponent {
     constructor(public dialogRef: MatDialogRef<ThanksDialogComponent>) { }

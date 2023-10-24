@@ -6,10 +6,20 @@ import { Subject, combineLatest, empty } from 'rxjs';
 import { map, switchMap, tap, filter } from 'rxjs/operators';
 import { YearService } from '../year.service';
 import { AuthService } from '../realtime-data/auth.service';
+import { MatLegacyButtonModule } from '@angular/material/legacy-button';
+import { StarBarComponent } from './star-bar.component';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'user-feedback',
     templateUrl: 'user-feedback.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        StarBarComponent,
+        MatLegacyButtonModule,
+        AsyncPipe,
+    ],
 })
 export class UserFeedbackComponent implements OnChanges {
     @Input()

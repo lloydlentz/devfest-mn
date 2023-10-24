@@ -9,14 +9,12 @@ import { AuthService } from './auth.service';
 import { FirebaseService } from './firebase.service';
 
 @NgModule({
-    declarations: [
-        FireJoinPipe,
-    ],
     imports: [
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         AngularFireDatabaseModule,
         AngularFirestoreModule,
+        FireJoinPipe,
     ],
     providers: [
         AuthService,

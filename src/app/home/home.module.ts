@@ -5,10 +5,6 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-    declarations: [
-        HomeComponent,
-
-    ],
     imports: [
         CommonModule,
         RouterModule.forChild([
@@ -17,7 +13,7 @@ import { HomeComponent } from './home.component';
                 component: HomeComponent,
             },
         ]),
-
+        HomeComponent,
     ],
 })
 export class HomeModule { }

@@ -20,7 +20,7 @@ import { RealtimeDataModule } from '../realtime-data/realtime-data.module';
         MatButtonModule,
         MatDialogModule,
         MatRadioModule,
-    ],
-    declarations: [CFPComponent, ThanksDialogComponent]
+        CFPComponent, ThanksDialogComponent,
+    ]
 })
 export class CFPModule {}

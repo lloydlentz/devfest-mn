@@ -1,8 +1,10 @@
  import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
  @Component({
-     selector: 'speaker-container',
-     template: `
+    selector: 'speaker-container',
+    template: `
      <div *ngIf="speaker">
       <div class="speaker-card" *ngIf="speaker.confirmed || showEdit">
         <div *ngIf="speaker.imageUrl">
@@ -19,8 +21,10 @@
     </div>
     </div>
 
-     `
- })
+     `,
+    standalone: true,
+    imports: [NgIf, RouterLink]
+})
  export class SpeakerContainerComponent {
      @Input() speaker;
      @Input() year;

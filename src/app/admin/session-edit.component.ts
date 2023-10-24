@@ -8,9 +8,33 @@ import { map } from 'rxjs/operators';
 
 import { DataService, Session } from '../shared/data.service';
 import { YearService } from '../year.service';
+import { FireJoinPipe } from '../realtime-data/fire-join.pipe';
+import { SpeakerSelectorComponent } from './speaker-selector.component';
+import { MatLegacyButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyOptionModule } from '@angular/material/legacy-core';
+import { MatLegacyAutocompleteModule } from '@angular/material/legacy-autocomplete';
+import { FormsModule } from '@angular/forms';
+import { MatLegacyInputModule } from '@angular/material/legacy-input';
+import { MatLegacyFormFieldModule } from '@angular/material/legacy-form-field';
+import { NgIf, NgFor, AsyncPipe, KeyValuePipe } from '@angular/common';
 
 @Component({
     templateUrl: './session-edit.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        MatLegacyFormFieldModule,
+        MatLegacyInputModule,
+        FormsModule,
+        MatLegacyAutocompleteModule,
+        NgFor,
+        MatLegacyOptionModule,
+        MatLegacyButtonModule,
+        SpeakerSelectorComponent,
+        AsyncPipe,
+        KeyValuePipe,
+        FireJoinPipe,
+    ],
 })
 export class SessionEditComponent {
     sessionData: Observable<Session>;
