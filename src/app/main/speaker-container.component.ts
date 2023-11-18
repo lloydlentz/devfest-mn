@@ -14,7 +14,7 @@
             <a *ngIf="showEdit" [routerLink]="['/',year,'admin','speakers',speaker.$key,'edit']"><img src="/a/edit.svg"></a>
             </div>
             <div>{{speaker.company}}</div>
-            <div *ngIf="speaker.twitter"><a href="https://twitter.com/{{speaker.twitter}}" target="_blank">@{{speaker.twitter}}</a></div>
+            <div *ngIf="speaker.twitter"><a href="https://twitter.com/{{speaker.twitter}}" target="_blank">&#64;{{speaker.twitter}}</a></div>
         </div>
     </div>
     </div>

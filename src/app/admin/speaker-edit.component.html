@@ -12,7 +12,7 @@
         <textarea [(ngModel)]="speaker.bio" placeholder="Bio" style="width: 100%; height: 5em;"></textarea>
         <mat-checkbox [(ngModel)]="speaker.confirmed" [checked]=speaker.confirmed >Confirmed</mat-checkbox>
         <mat-form-field><input matInput [(ngModel)]="speaker.company" placeholder="Company"></mat-form-field>
-        <mat-form-field><input matInput [(ngModel)]="speaker.twitter" placeholder="Twitter"><span matPrefix>@</span></mat-form-field>
+        <mat-form-field><input matInput [(ngModel)]="speaker.twitter" placeholder="Twitter"><span matPrefix>&#64;</span></mat-form-field>
         <mat-form-field><input matInput [(ngModel)]="speaker.imageUrl" placeholder="Image URL"></mat-form-field>
         <mat-form-field><input matInput [(ngModel)]="speaker.website" placeholder="Website"></mat-form-field>
         <button type="submit" *ngIf="speaker.$key" mat-raised-button>Save Speaker</button>

@@ -9,7 +9,7 @@
     </div>
     <div>{{speaker.company}}</div>
     <div *ngIf="speaker.twitter">
-        <a href="https://twitter.com/{{speaker.twitter}}" target="_new">@{{speaker.twitter}}</a>
+        <a href="https://twitter.com/{{speaker.twitter}}" target="_new">&#64;{{speaker.twitter}}</a>
     </div>
     <div style="border:1px solid #CCC;margin:32px;padding:32px;" [innerHTML]="speaker.bio" *ngIf="speaker.bio"></div>
 </div>
