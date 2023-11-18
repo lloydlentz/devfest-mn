@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    defaultYear: '2019ai',
+    defaultYear: '2023',
     siteName: 'DevFestMN',
     firebaseConfig: {
         apiKey: 'AIzaSyBrWJx91j512T3q6AaTGNxu_3fq47bYhfg',
@@ -12,5 +12,5 @@ export const environment = {
     },
     showRegister: 'https://www.eventbrite.com/e/68810735763?aff=devfestmnwebsite',
     showSchedule: false,
-    showSpeakers: false,
+    showSpeakers: true,
 };

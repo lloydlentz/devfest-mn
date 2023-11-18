@@ -1,12 +1,25 @@
 <section>
     <div>
-    	<img src="/a/2016/images/devfestmn.caf3a594.svg" style="width:40%;max-width:400px;min-width:250px;" alt="DevFestMN">
+        <img
+            src="/a/images/devfestmn.svg"
+            style="width: 40%; max-width: 400px; min-width: 250px"
+            alt="DevFestMN"
+        />
     </div>
     <div class="callout">Confirmed Speakers</div>
 
-    <button *ngIf="auth.isAdmin | async" mat-raised-button color="primary" (click)="addSpeaker()">Add Speaker</button>
+    <button *ngIf="auth.isAdmin | async" mat-raised-button color="primary" (click)="addSpeaker()">
+        Add Speaker
+    </button>
     <div class="speaker-list-container">
-        <speaker-container *ngFor="let speaker of speakers | async" [speaker]="speaker" [year]="yearService.year" [showEdit]="auth.isAdmin | async"></speaker-container>
+        <speaker-container
+            *ngFor="let speaker of speakers | async"
+            [speaker]="speaker"
+            [year]="yearService.year"
+            [showEdit]="auth.isAdmin | async"
+        ></speaker-container>
     </div>
-    <button *ngIf="auth.isAdmin | async" mat-raised-button color="primary" (click)="addSpeaker()">Add Speaker</button>
+    <button *ngIf="auth.isAdmin | async" mat-raised-button color="primary" (click)="addSpeaker()">
+        Add Speaker
+    </button>
 </section>
