@@ -1,5 +1,4 @@
-
-import {of as observableOf,  Observable } from 'rxjs';
+import { of as observableOf, Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -45,29 +44,33 @@ export class SessionEditComponent {
         public router: Router,
         public yearService: YearService
     ) {
-        this.sessionData = route.params.pipe(switchMap(params => {
-            if (params['id'] === 'new') {
-                return observableOf({ startTime: params['time'], room: params['room'] });
-            }
-            return ds.getSchedule(yearService.year).pipe(map(list => list.find(item => item.$key === params['id'])));
-        }));
+        this.sessionData = route.params.pipe(
+            switchMap((params) => {
+                if (params['id'] === 'new') {
+                    return observableOf({ startTime: params['time'], room: params['room'] });
+                }
+                return ds
+                    .getSchedule(yearService.year)
+                    .pipe(map((list) => list.find((item) => item.$key === params['id'])));
+            })
+        );
     }
 
     save(session) {
         event.preventDefault();
         this.ds.save('schedule', session);
-        this.router.navigate(['/', this.yearService.year, 'schedule']);
+        this.router.navigate(['/', 'schedule']);
     }
 
     delete(session) {
         this.ds.delete('schedule', session);
-        this.router.navigate(['/', this.yearService.year, 'schedule']);
+        this.router.navigate(['/', 'schedule']);
     }
 
     deleteSpeakerFromSession(session: Session, speakerKey: string) {
-       this.ds.deleteSpeakerFromSession(session, speakerKey);
+        this.ds.deleteSpeakerFromSession(session, speakerKey);
     }
     getValues(obj) {
-        return Object.keys(obj).map(key => obj[key]);
+        return Object.keys(obj).map((key) => obj[key]);
     }
 }

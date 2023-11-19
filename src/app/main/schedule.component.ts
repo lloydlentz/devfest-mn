@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-import { DataService, Session } from '../shared/data.service';
+import { DataService } from '../shared/data.service';
 
 import { Observable, combineLatest } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
 import { YearService } from '../year.service';
 import { AuthService } from '../realtime-data/auth.service';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,12 +21,7 @@ export interface Schedule {
 @Component({
     templateUrl: './schedule.component.html',
     standalone: true,
-    imports: [
-        NgIf,
-        ScheduleGridComponent,
-        MatButtonModule,
-        AsyncPipe,
-    ],
+    imports: [NgIf, ScheduleGridComponent, MatButtonModule, AsyncPipe],
 })
 export class ScheduleComponent {
     // Two versions of the same data, one filtered, one not
@@ -50,7 +44,7 @@ export class ScheduleComponent {
          * Session data should look like data[time][room] = session;
          */
         this.allSessions = ds.getSchedule(yearService.year).pipe(
-            map(list => {
+            map((list) => {
                 let data = {};
                 for (let session of list) {
                     let time = session.startTime;
@@ -69,7 +63,7 @@ export class ScheduleComponent {
                     }
                 }
 
-                let pad = n => (n < 10 ? '0' + n : n);
+                let pad = (n) => (n < 10 ? '0' + n : n);
                 // Look for holes
                 for (let time in data) {
                     if (data.hasOwnProperty(time)) {
@@ -85,7 +79,7 @@ export class ScheduleComponent {
                                         time.substr(13);
 
                                     if (!data[previous]) {
-                                       // This is fine, it just means we're probably at the beginning of a day
+                                        // This is fine, it just means we're probably at the beginning of a day
                                         continue;
                                     }
 
@@ -126,7 +120,6 @@ export class ScheduleComponent {
      * Take in a full schedule and a set of agenda keys, return a new schedule of just those sessions the user has selected.
      */
     filterToMyAgenda(allData: Schedule, rawAgenda: any[]): Schedule {
-
         let result: Schedule = { startTimes: allData.startTimes, gridData: {}, rooms: [] };
 
         let resultSessions = {};
@@ -176,9 +169,6 @@ export class ScheduleComponent {
     }
 
     addSession() {
-        this.router.navigate(['/', this.yearService.year, 'admin', 'sessions', 'new', 'edit']);
+        this.router.navigate(['/', 'admin', 'sessions', 'new', 'edit']);
     }
-    
 }
-
-

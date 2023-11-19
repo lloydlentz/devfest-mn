@@ -16,19 +16,13 @@ export interface Schedule {
 @Component({
     templateUrl: './sessions.component.html',
     standalone: true,
-    imports: [
-        NgFor,
-        RouterLink,
-        AsyncPipe,
-    ],
+    imports: [NgFor, RouterLink, AsyncPipe],
 })
 export class SessionsComponent {
     sessions;
 
     thisSession = {};
     showDialog = false;
-
-    year: string;
 
     constructor(
         public ds: DataService,

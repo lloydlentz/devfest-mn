@@ -28,9 +28,6 @@ import { NgIf, NgFor, AsyncPipe, JsonPipe, KeyValuePipe } from '@angular/common'
 export class ScheduleGridComponent {
     @Input() data;
     @Input() forceMobile: boolean;
-    @Input() year;
 
-    constructor(public ds: DataService, public auth: AuthService) {
-
-    }
+    constructor(public ds: DataService, public auth: AuthService) {}
 }

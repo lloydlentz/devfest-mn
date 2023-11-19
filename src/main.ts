@@ -4,7 +4,7 @@ import { environment } from './environments/environment';
 import { appConfig } from './app/app.config';
 
 if (!environment.production) {
-    console.log('In DEV mode');
+    console.log('Using DEV environment configuration');
 }
 
 bootstrapApplication(AppComponent, appConfig);
