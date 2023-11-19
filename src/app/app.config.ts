@@ -4,7 +4,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { UrlSegment, provideRouter } from '@angular/router';
-import AuthenticatedRoutes from './authenticated/authenticated.routes';
 import { DataService } from './shared/data.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -39,8 +38,7 @@ export const appConfig: ApplicationConfig = {
             },
             {
                 path: '',
-                //loadChildren: () => import('./authenticated/authenticated.routes'),
-                children: AuthenticatedRoutes,
+                loadChildren: () => import('./authenticated/authenticated.routes'),
             },
         ]),
         provideClientHydration(),
