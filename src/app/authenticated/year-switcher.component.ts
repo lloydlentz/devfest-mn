@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { YearService } from '../year.service';
 
 @Component({
+    selector: 'app-year-switcher',
     template: '<router-outlet>',
     standalone: true,
     imports: [RouterOutlet],

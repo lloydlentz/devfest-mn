@@ -354,6 +354,14 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/ssr@^17.0.1":
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/ssr/-/ssr-17.0.1.tgz#ba12972c85e847a3638bf2ea53f70785565d0d13"
+  integrity sha512-DlUudZCYhwfiuYwsIWTFxXgDS1DUyUFfv1bas2QTEFh6zo/V54+OOF7LPspezMQHulG/SkPGO1tJC1Z5FtwiMg==
+  dependencies:
+    critters "0.0.20"
+    tslib "^2.3.0"
+
 "@apidevtools/json-schema-ref-parser@^9.0.3":
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@apidevtools/json-schema-ref-parser/-/json-schema-ref-parser-9.1.2.tgz#8ff5386b365d4c9faa7c8b566ff16a46a577d9b8"

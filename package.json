@@ -28,6 +28,7 @@
     "@angular/platform-server": "^17.0.3",
     "@angular/router": "^17.0.3",
     "@angular/service-worker": "^17.0.3",
+    "@angular/ssr": "^17.0.1",
     "core-js": "^2.5.4",
     "firebase": "^9.13.0",
     "firebase-http2-push-config": "^0.0.11",

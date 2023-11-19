@@ -8,7 +8,11 @@ import { OurMeta } from './our-meta.service';
 import { NgIf } from '@angular/common';
 import { ADirective } from './a.directive';
 
-declare var ga: any;
+declare global {
+    interface Window {
+        ga: any;
+    }
+}
 
 @Component({
     selector: 'app-root',
@@ -22,10 +26,19 @@ declare var ga: any;
                 // animate the leave page away
                 group([
                     query(':leave', [
-                        animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(-100%)' })),
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(-100%)' })
+                        ),
                     ]),
                     // and now reveal the enter
-                    query(':enter', animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(0)' }))),
+                    query(
+                        ':enter',
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(0)' })
+                        )
+                    ),
                 ]),
             ]),
             transition('2 => 1', [
@@ -35,21 +48,25 @@ declare var ga: any;
                 // animate the leave page away
                 group([
                     query(':leave', [
-                        animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(100%)' })),
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(100%)' })
+                        ),
                     ]),
                     // and now reveal the enter
-                    query(':enter', animate('0.3s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(0)' }))),
+                    query(
+                        ':enter',
+                        animate(
+                            '0.3s cubic-bezier(.35,0,.25,1)',
+                            style({ transform: 'translateX(0)' })
+                        )
+                    ),
                 ]),
             ]),
         ]),
     ],
     standalone: true,
-    imports: [
-        ADirective,
-        RouterLink,
-        NgIf,
-        RouterOutlet,
-    ],
+    imports: [ADirective, RouterLink, NgIf, RouterOutlet],
 })
 export class AppComponent {
     environment = environment;
@@ -69,9 +86,10 @@ export class AppComponent {
 
                 meta.clearCanonical();
 
-                window.scrollTo(0, 0);
-
-                ga('send', 'pageview', n.urlAfterRedirects);
+                if (typeof window !== 'undefined') {
+                    window.scrollTo(0, 0);
+                    window.ga('send', 'pageview', n.urlAfterRedirects);
+                }
             });
         router.events
             .pipe(filter((e) => e instanceof NavigationStart))
