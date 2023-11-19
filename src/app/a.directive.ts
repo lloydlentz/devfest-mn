@@ -14,7 +14,7 @@ export class ADirective {
         }
 
         link.relList.add('noopener');
-        link.relList.add('noreferrer');
+        // link.relList.add('noreferrer');
         link.target = '_blank';
     }
 }

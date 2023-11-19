@@ -8,9 +8,33 @@ import { map } from 'rxjs/operators';
 
 import { DataService, Session } from '../shared/data.service';
 import { YearService } from '../year.service';
+import { FireJoinPipe } from '../realtime-data/fire-join.pipe';
+import { SpeakerSelectorComponent } from './speaker-selector.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf, NgFor, AsyncPipe, KeyValuePipe } from '@angular/common';
 
 @Component({
     templateUrl: './session-edit.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatAutocompleteModule,
+        NgFor,
+        MatOptionModule,
+        MatButtonModule,
+        SpeakerSelectorComponent,
+        AsyncPipe,
+        KeyValuePipe,
+        FireJoinPipe,
+    ],
 })
 export class SessionEditComponent {
     sessionData: Observable<Session>;

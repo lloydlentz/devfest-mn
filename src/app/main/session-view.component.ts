@@ -10,9 +10,13 @@ import { DataService, Session } from '../shared/data.service';
 import { YearService } from '../year.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { OurMeta } from '../our-meta.service';
+import { AsyncPipe } from '@angular/common';
+import { SessionDetailsComponent } from './session-details.component';
 
 @Component({
     templateUrl: './session-view.component.html',
+    standalone: true,
+    imports: [SessionDetailsComponent, AsyncPipe],
 })
 export class SessionViewComponent {
     session: Observable<Session>;

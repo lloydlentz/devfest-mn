@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { DataService } from '../shared/data.service';
 
 import { YearService } from '../year.service';
 import { AuthService } from '../realtime-data/auth.service';
+import { NgFor, AsyncPipe } from '@angular/common';
 
 export interface Schedule {
     startTimes: any[];
@@ -14,6 +15,12 @@ export interface Schedule {
 
 @Component({
     templateUrl: './sessions.component.html',
+    standalone: true,
+    imports: [
+        NgFor,
+        RouterLink,
+        AsyncPipe,
+    ],
 })
 export class SessionsComponent {
     sessions;
