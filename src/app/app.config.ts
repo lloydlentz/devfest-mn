@@ -4,27 +4,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { UrlSegment, provideRouter } from '@angular/router';
-import { DataService } from './shared/data.service';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AuthService } from './realtime-data/auth.service';
-import { FirebaseService } from './realtime-data/firebase.service';
-import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         importProvidersFrom(BrowserModule, MatSnackBarModule),
-        DataService,
-        importProvidersFrom(
-            AngularFireModule.initializeApp(environment.firebaseConfig),
-            AngularFireAuthModule,
-            AngularFireDatabaseModule,
-            AngularFirestoreModule
-        ),
-        AuthService,
-        FirebaseService,
         provideAnimations(),
         provideRouter([
             {

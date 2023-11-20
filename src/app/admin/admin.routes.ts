@@ -8,15 +8,6 @@ import { SessionEditComponent } from './session-edit.component';
 import { SessionReportComponent } from './session-report.component';
 import { SpeakerEditComponent } from './speaker-edit.component';
 import { VolunteersComponent } from './volunteers.component';
-import { DataService } from '../shared/data.service';
-import { importProvidersFrom } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { FirebaseService } from '../realtime-data/firebase.service';
-import { AuthService } from '../realtime-data/auth.service';
 
 export const AdminRoutes: Routes = [
     {
